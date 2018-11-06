@@ -1,4 +1,4 @@
-package cn.ynm;
+package cn.ynm.jsonUtil;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -11,10 +11,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class JsonUtil {
-    Gson gson = new Gson();
 
     public static void main(String[] args) throws IOException {
-        File file = new File("src/main/java/cn/ynm/test.json");
+        File file = new File("src/main/java/cn/ynm/jsonUtil/test.json");
         String content = FileUtils.readFileToString(file,"utf-8");
 
         JsonParser parser = new JsonParser();
@@ -25,7 +24,6 @@ public class JsonUtil {
         for (JsonElement user : jsonArray) {
             UserBean userBean = gson.fromJson(user, UserBean.class);
             userBeans.add(userBean);
-            System.out.println(userBean.getAge());
         }
 
     }
